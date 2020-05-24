@@ -1,0 +1,18 @@
+Ce qu'il reste à faire : 
+
+GENERAL : 
+
+Ajuster au mieux pour tous les écrans la taille de l'élément trensparent principal
+
+
+
+EN TETE : 
+
+Travailler sur le menu (améliorer l'esthethique)
+
+Installer le "hover" prévu par Damien 
+
+++ installer un diaporama et faire que le "hover" change automatiquement en fonctione de la diapo
+
+CORPS :
+
