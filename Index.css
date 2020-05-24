@@ -1,3 +1,8 @@
+:root{
+    --couleur1:rgba(255, 102, 0, 0.849);
+}
+
+
 .en_tete{
     display:flex;
     height:100vh;
@@ -21,11 +26,20 @@
 
 .social-menu img{
     background-color: aquamarine;
-    border-radius: 1em;
+    border-radius: 2em;
+    width:4em;
 }
 
 .logo{
+    margin:0;
+    display:flex;
+    justify-content: flex-end;
+}
 
+.logo img{
+    margin:0;
+    width: 35%;
+    height:100%;
 }
 
 .contenu-en_tete{
@@ -42,12 +56,9 @@
     justify-content: flex-end;
     align-items: flex-end;
     width:75%;
-    border-right:rgba(255, 102, 0, 0.849) 3px solid;
+    border-right:var(--couleur1) 3px solid;
     margin:20px;
     padding:0 20px;
- 
-
-
 
 }
 
@@ -65,10 +76,191 @@ padding:0;
     text-align:right;
 }
 .description_site button{
-    background-color: rgb(255, 102, 0);
+    background-color: var(--couleur1);
+    color:white;
 }
 
 .description_site .description{
     width:50%;
 
+}
+
+.info_lieu{
+    display:flex;
+    padding:20px;
+    background-color: white;
+    border-radius:1em;
+    box-shadow: rgba(0, 0, 0, 0.233) 0px 0px 30px ;
+    flex-direction: row;
+    align-items:flex-end;
+    width:80%;
+}
+
+.info_lieu_img{
+    width:25%;
+    background-color: royalblue;
+    height:200ox;
+}
+
+.info_lieu_text{
+    display:flex;
+    flex-direction: column;
+}
+
+.info_lieu h6{
+    color:var(--couleur1);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+}
+
+.info_lieu h2{
+    color:rgb(24, 105, 119);
+    font-weight: bold ;
+    font-size:1.8em;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.info_lieu p{
+width:50%;
+}
+
+.info_lieu button{
+text-align:center;
+background-color: var(--couleur1);
+width:20%;
+color:white;
+
+}
+
+.info_membre{
+    display:flex;
+    padding:20px;
+    background-color: white;
+    border-radius: 1em;
+    box-shadow: rgba(0, 0, 0, 0.233) 0px 0px 30px ;
+    flex-direction: row;
+    align-items:flex-end;
+    width:80%;
+    text-align:right;
+    
+}
+
+.info_membre_img{
+    width:50%;
+    background-color: royalblue;
+    height:100%;
+    background-image: url('Ressource_image/equipe_bilal.png');
+    background-size: cover;
+}
+
+.info_membre_text{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items:flex-end;
+    margin-right:20px;
+}
+
+.info_membre h6{
+    color:var(--couleur1);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+}
+
+.info_membre h2{
+    color:rgb(24, 105, 119);
+    font-weight: bold ;
+    font-size:1.8em;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.info_membre p{
+width:50%;
+}
+
+.info_membre button{
+text-align:center;
+background-color: var(--couleur1);
+width:20%;
+color:white;
+}
+
+.separator_container{
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.separator{
+display: flex;
+align-items: center;
+}
+
+.separator img{
+    width:5em;
+}
+
+.separator_line{
+    border-top: 5px solid var(--couleur1);
+    width: 100%;
+    height:0;
+    margin:5px;
+    background-color: rgba(255, 0, 0, 0.315);
+    border-radius: 2em;
+}
+
+.info_burreau{
+    display:flex;
+    padding:20px;
+    background-color: white;
+    border-radius: 1em;
+    box-shadow: rgba(0, 0, 0, 0.233) 0px 0px 30px ;
+    flex-direction: row;
+    align-items:flex-end;
+    width:80%;
+    text-align:right;
+    
+}
+
+.info_burreau_img{
+    display: flex;
+    background-color: royalblue;
+    height:100%;
+    width:100px;
+}
+
+.info_burreau_img img{
+
+}
+
+.info_burreau_text{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items:flex-end;
+}
+
+.info_burreau h6{
+    color:var(--couleur1);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+}
+
+.info_burreau h2{
+    color:rgb(24, 105, 119);
+    font-weight: bold ;
+    font-size:1.8em;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.info_burreau p{
+width:50%;
+}
+
+.info_burreau button{
+text-align:center;
+background-color: var(--couleur1);
+width:20%;
+color:white;
 }
