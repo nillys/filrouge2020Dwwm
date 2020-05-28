@@ -192,6 +192,10 @@ color:white;
 
 /* DEUXIEME SECTION */
 
+.carousel-inner{
+ width: 100%;
+}
+
 .info_membre{
     display:flex;
     padding:20px;
