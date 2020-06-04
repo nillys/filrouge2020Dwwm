@@ -1,3 +1,8 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+
 a:hover{
     text-decoration: none;
     color:black;
@@ -22,7 +27,9 @@ a:hover{
     width: 100%;
 }
 
-.speech_container h2{
+
+
+.main_title{
     background: rgb(161,219,212);
     background: -moz-linear-gradient(0deg, rgba(161,219,212,1) 0%, rgba(0,194,158,1) 7%, rgba(253,255,255,1) 97%, rgba(255,255,255,1) 100%);
     background: -webkit-linear-gradient(0deg, rgba(161,219,212,1) 0%, rgba(0,194,158,1) 7%, rgba(253,255,255,1) 97%, rgba(255,255,255,1) 100%);
@@ -35,6 +42,24 @@ a:hover{
     padding: 0.5em;
     box-shadow: rgb(222, 248, 187) 0 5px 10px ;
     font-weight: bold;
+}
+
+.control-button{
+    background: rgb(161,219,212);
+    background: -moz-linear-gradient(0deg, rgba(161,219,212,1) 0%, rgba(0,194,158,1) 7%, rgba(253,255,255,1) 97%, rgba(255,255,255,1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(161,219,212,1) 0%, rgba(0,194,158,1) 7%, rgba(253,255,255,1) 97%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(0deg, rgb(164, 243, 234) 0%, rgb(182, 253, 168) 7%, rgba(253,255,255,1) 97%, rgba(255,255,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a1dbd4",endColorstr="#ffffff",GradientType=1); 
+    transition: all 0.2s;
+    box-shadow: black 0 3px 3px -2px;
+}
+
+.control-button:hover{
+    box-shadow: black 0 0 1px -1px;
+}
+
+.control-button:active{
+    box-shadow: inset black  0 0 5px 0.2px;
 }
 
 .speech_container p{
@@ -54,12 +79,30 @@ a:hover{
     text-decoration: underline;
     margin: 1em;
 }
+
+.header_diapo{
+    display: flex;
+    height:70px;
+    justify-content: space-between;
+}
+
+.control_panel{
+display: flex;
+background-color: aliceblue;
+}
+
+.title_panel{
+
+}
+
+
 .diapo{
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    scroll-snap-type: y proximity;
 }
 
 .diapo img{

@@ -7,7 +7,10 @@
     <link type="text/css" rel="stylesheet" href="Design.css">
     <link type="text/css" rel="stylesheet" href="Page3.css">
     <link type="text/css" rel="stylesheet" href="Ressource_code/aos-master/aos-master/dist/aos.css">
+    <link rel="stylesheet" type="text/css"
+        href="Ressource_icone/open-iconic-master/open-iconic-master/font/css/open-iconic-bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 
 </head>
 
@@ -20,7 +23,7 @@
         <div class="row" style="height:100vh;">
             <div class="col-lg-3 border" style="padding:0;">
                 <div class="speech_container">
-                    <h2>Ou je vous propose d'aller !</h2>
+                    <h2 class="main_title ">Ou je vous propose d'aller !</h2>
                     <p>Un monde évolué :<br><br>Libre , intéligent , axé sur le bonheur et l'épanouissement de
                         l'individu <strong>Décentralisé, mais ordoné dirigé par le bon sens l'intéligence de
                             chacun</strong>.<br><br><span style="font-style: italic;font-size: larger;">ET</span></p>
@@ -35,15 +38,33 @@
                     <div class="container-fluid">
                         <div class="row" style="">
 
-                            <div class="col-md-6" style="padding:0"><a href="page2.html"><button class="btn btn-light btn-block">D'ou on part?</button></a></div>
-                            <div class="col-md-6" style="padding:0"> <a href="Page1.html"><button class="btn btn-light btn-block">Menu principal</button></a></div>
+                            <div class="col-md-6" style="padding:0"><a href="page2.html"><button
+                                        class="btn btn-light btn-block">D'ou on part?</button></a></div>
+                            <div class="col-md-6" style="padding:0"> <a href="Page1.html"><button
+                                        class="btn btn-light btn-block">Menu principal</button></a></div>
                         </div>
                     </div>
                 </div>
 
             </div>
 
-            <div class="col-lg-9 h-100" style="overflow-y: scroll;">
+            <div id="diapo_show" class="col-lg-9 h-100" style="overflow-y: scroll;padding: 0;">
+                <div class="main_title header_diapo sticky-top">
+                    <div class="control_panel">
+
+
+                        <a href="#diapo1"><button id="btn-left" class="btn control-button"><span
+                                    class="oi oi-arrow-left"></span></button></a>
+
+                        <a href="#diapo2"><button id="btn-right" class="btn control-button">droite<span
+                                    class="oi oi-arrow-right"></span></button></a>
+
+                    </div>
+                    <div class="title_panel">
+                        <h2>Un monde meilleurs</h2>
+                        <p id="compteur"></p>
+                    </div>
+                </div>
                 <div class="diapo">
                     <img src="Ressource_image/spring-276014_1920.jpg ">
                     <div id="diapo1" class="shrink-content">
@@ -76,6 +97,28 @@
 
 
 
+    </script>
+
+
+    <script src="Ressource_code/aos-master/os-master/dist/aos.js"></script>
+    <script src="bootstrap/js/jquery-3.4.1.min.js"></script>
+    <script>
+        var indice = 1
+        $(document).ready(function () {
+            $("#btn-right").click(function () {
+                indice += 1;
+                var path = "#diapo" + indice.toString()
+                $(".control_panel a").attr("href", path);
+            });
+            $("#btn-left").click(function () {
+                if (indice > 0) {
+                    indice -= 1;
+                }
+                var path = "#diapo" + indice.toString()
+                $(".control_panel a").attr("href", path);
+            });
+
+        });
     </script>
 
 </body>
