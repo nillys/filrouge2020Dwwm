@@ -48,16 +48,16 @@
 
             </div>
 
-            <div id="diapo_show" class="col-lg-9 h-100" style="overflow-y: scroll;padding: 0;">
+            <div id="diapo_show" class="col-lg-9 h-100" style="overflow-y: hidden;padding: 0;">
                 <div class="main_title header_diapo sticky-top">
                     <div class="control_panel">
 
 
-                        <a href="#diapo1"><button id="btn-left" class="btn control-button"><span
-                                    class="oi oi-arrow-left"></span></button></a>
+                        <a href="#ligne1" id="btn-left"><button class="btn control-button"><span
+                                    class="oi oi-arrow-thick-top"></span>Précedent</button></a>
 
-                        <a href="#diapo2"><button id="btn-right" class="btn control-button">droite<span
-                                    class="oi oi-arrow-right"></span></button></a>
+                        <a href="#ligne2" id="btn-right"><button class="btn control-button"><span
+                                    class="oi oi-arrow-thick-bottom"></span>Suivant</button></a>
 
                     </div>
                     <div class="title_panel">
@@ -65,37 +65,71 @@
                         <p id="compteur"></p>
                     </div>
                 </div>
-                <div class="diapo">
+                <div class="ligne" id="ligne1">
                     <img src="Ressource_image/spring-276014_1920.jpg ">
+                    <div class="shrink-content"
+                        style="background-image: url('Ressource_image/spring-276014_1920.jpg');background-size: 150%;">
+                        <div class="carousel-container">
 
-                    <div class="carousel-container" style="background-color: aqua;">
-                        <div id="" class="carousel_index carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div id="diapo1" class="shrink-content">
-                                        <h1 style="color:white;"></h1>
-                                        <div class="description"></div>
+
+                            <div id="carousel_ligne_1" class="carousel_index carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel_ligne_1" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel_ligne_1" data-slide-to="1"></li>
+
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div id="diapo1" class="carousel-item active">
+                                        <div class="diapo">
+                                            <h1 id="title" style="color:white;">Un meilleurs monde</h1>
+                                            <div class="carousel-caption d-none d-md-block">
+
+                                                <h5>La souffrance , l'éxclusion , la misère, l'asservissement , la
+                                                    violence, la haine </h5>
+                                                <p>et ... <strong>Tout ce qui a une origine</strong> peut avoir une fin
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="carousel-item ">
-                                    <div id="diapo3" class="shrink-content">
-                                        <h1 style="color:white;">sdqfqsdf</h1>
-                                        <div class="description"></div>
+
+                                    <div id="diapo2" class="carousel-item">
+                                        <div class="diapo">
+                                            <h1 style="color:white;">Un meilleurs monde</h1>
+                                            <div class="carousel-caption d-none d-md-block">
+
+                                                <h5>La souffrance , l'éxclusion , la misère, l'asservissement , la
+                                                    violence, la haine </h5>
+                                                <p>et ... <strong>Tout ce qui a une origine</strong> peut avoir une fin
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
+
+
                                 </div>
 
 
 
 
                             </div>
+                            <a class="carousel_control carousel-control-prev" href="#carousel_ligne_1" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel_control carousel-control-next" href="#carousel_ligne_1" role="button"
+                                data-slide="next">
+                                <span class=" carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
                     </div>
-
-
                 </div>
-                <div class="diapo">
+
+
+                <div id="ligne2" class="ligne">
                     <img src="Ressource_image/lotus.jpg ">
-                    <div id="diapo2" class="shrink-content">
+                    <div class="shrink-content">
 
                         <div class="description"></div>
                     </div>
@@ -124,26 +158,45 @@
     <script src="Ressource_code/aos-master/os-master/dist/aos.js"></script>
     <script src="bootstrap/js/jquery-3.4.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.js"></script>
+
     <script>
-        var indice = 1
+
         $(document).ready(function () {
+            $(window).load(function () {
+
+                /*
+                    Stop carousel
+                */
+                $('.carousel').carousel('pause');
+
+            });
+            var next = 2, previous = 1, nb_diapo = 2, ;
+
             $("#btn-right").click(function () {
-                indice += 1;
-                var path = "#diapo" + indice.toString()
-                $(".control_panel a").attr("href", path);
+                if (next < nb_diapo) {
+                    next += 1, previous += 1;
+                    var path_next = "#ligne" + next.toString()
+                    var path_previous = "#ligne" + previous.toString()
+                    $(this).attr("href", path_next)
+                    $("#btn-left").attr("href", path_previous)
+                }
             });
             $("#btn-left").click(function () {
-                if (indice > 0) {
-                    indice -= 1;
+                if (previous > 1) {
+                    next -= 1, previous -= 1;
+                    var path_next = "#ligne" + next.toString()
+                    var path_previous = "#ligne" + previous.toString()
+                    $(this).attr("href", path_previous)
+                    $("#btn-right").attr("href", path_next)
+                } else if (previous == 1) {
+                    $(this).attr("href", "#diapo-show")
                 }
-                var path = "#diapo" + indice.toString()
-                $(".control_panel a").attr("href", path);
             });
-
+            $("#btn3").click(function () {
+                $("#test3").val("Dolly Duck");
+            });
         });
+
+
+
     </script>
-
-</body>
-
-
-</html>

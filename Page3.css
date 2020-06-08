@@ -1,5 +1,5 @@
-html {
-    scroll-behavior: smooth;
+*{
+    scroll-behavior: smooth !important;
   }
 
 
@@ -25,6 +25,7 @@ a:hover{
     font-family:'Times New Roman', Times, serif;
     box-shadow: aliceblue 0 0 10px;
     width: 100%;
+
 }
 
 
@@ -88,7 +89,6 @@ a:hover{
 
 .control_panel{
 display: flex;
-background-color: aliceblue;
 }
 
 .title_panel{
@@ -96,7 +96,7 @@ background-color: aliceblue;
 }
 
 
-.diapo{
+.ligne{
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -105,12 +105,12 @@ background-color: aliceblue;
     scroll-snap-type: y proximity;
 }
 
-.diapo img{
+.ligne img{
     height: 100vh;
     width: 100%;
     position: absolute;
     z-index: -1;
-    filter: blur(1px);
+    filter: blur(2px);
 }
 
 .shrink-content{
@@ -124,14 +124,71 @@ background-color: aliceblue;
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
+.diapo{
+    height: 100%;
+    width: 100%;
+}
+#diapo-show::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
 #diapo1{
-    background-image: url('Ressource_image/Citation\ un\ monde\ meilleurs.PNG');
+    /* background-image: url('Ressource_image/montagne.jpg'); */
 }
 
 #diapo2{
-    background-image: url('Ressource_image/Ceux\ qui\ prétend\ détenir\ la\ vérité.PNG');
+    /* background-image: url('Ressource_image/Ceux\ qui\ prétend\ détenir\ la\ vérité.PNG'); */
+}
+
+.carousel-container{
+    width: 75%;
+    height: 75%;
+}
+
+.carousel-container .carousel-item{
+    height:100%;
+    width: 100%;
+    text-align: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+ 
+}
+
+.carousel_control{
+    opacity: 0;
+    width: 10%;
+}
+.carousel_control:hover{
+    width: 10%;
+    box-shadow: black 0 0 10px 1px;
+}
+
+.carousel-indicators li{
+ 
+}
+
+.icon{
+    border-radius: 1em;
+    box-shadow: rgb(255, 255, 255) 0 20px 20px;
+}
+
+.icon:hover{
+
+}
+
+.slide{
+    height:100%;
+    width: 100%;
+
+}
+
+.carousel-container .carousel-inner{
+    height:100%;
+    width: 100%;
 }
 
 .description{
