@@ -10,8 +10,36 @@
     <link rel="stylesheet" type="text/css"
         href="Ressource_icone/open-iconic-master/open-iconic-master/font/css/open-iconic-bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="bootstrap/js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.carousel').carousel(pause)
 
+            var next = 2, previous = 1, nb_diapo = 2;
+            $("#command_ligne_1_next").click(function () {
 
+                $('#diapositive-ligne1-1').css("background-image", "url('Ressource_image/Liberté.jpeg')");
+            });
+            $("#btn-right").click(function () {
+                if (next < nb_diapo) {
+                    next += 1, previous += 1;
+                    var path_next = "#ligne" + next.toString()
+                    var path_previous = "#ligne" + previous.toString()
+                    $(this).attr("href", path_next)
+                    $("#btn-left").attr("href", path_previous)
+                }
+            });
+            $("#btn-left").click(function () {
+                if (previous > 1) {
+                    next -= 1, previous -= 1;
+                    var path_next = "#ligne" + next.toString()
+                    var path_previous = "#ligne" + previous.toString()
+                    $(this).attr("href", path_previous)
+                    $("#btn-right").attr("href", path_next)
+                }
+            });
+
+        });</script>
 </head>
 
 <body>
@@ -67,15 +95,14 @@
                 </div>
                 <div class="ligne" id="ligne1">
                     <img src="Ressource_image/spring-276014_1920.jpg ">
-                    <div class="shrink-content"
-                        style="background-image: url('Ressource_image/spring-276014_1920.jpg');background-size: 150%;">
+                    <div id="diapositive-ligne1-1" class="shrink-content">
                         <div class="carousel-container">
 
 
-                            <div id="carousel_ligne_1" class="carousel_index carousel slide" data-ride="carousel">
+                            <div id="carousel_ligne_1" class="carousel_index carousel slide" data-ride="carousel"data-interval="false">
                                 <ol class="carousel-indicators">
-                                    <li data-target="#carousel_ligne_1" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carousel_ligne_1" data-slide-to="1"></li>
+                                    <!-- <li data-target="#carousel_ligne_1" data-slide-to="0" class="active"></li> -->
+                                    <!-- <li data-target="#carousel_ligne_1" data-slide-to="1"></li> -->
 
                                 </ol>
                                 <div class="carousel-inner">
@@ -117,8 +144,8 @@
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
-                            <a class="carousel_control carousel-control-next" href="#carousel_ligne_1" role="button"
-                                data-slide="next">
+                            <a id="command_ligne_1_next" class="carousel_control carousel-control-next"
+                                href="#carousel_ligne_1" role="button" data-slide="next">
                                 <span class=" carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
@@ -155,47 +182,17 @@
     </script>
 
 
-    <script src="Ressource_code/aos-master/os-master/dist/aos.js"></script>
-    <script src="bootstrap/js/jquery-3.4.1.min.js"></script>
+    <script src="Ressource_code/aos-master/os-master/dist/aos.js">$(document).ready(function () {
+            $("button").click(function () {
+                $("p").hide();
+            });
+        });</script>
+
     <script src="bootstrap/js/bootstrap.bundle.js"></script>
 
     <script>
 
-        $(document).ready(function () {
-            $(window).load(function () {
 
-                /*
-                    Stop carousel
-                */
-                $('.carousel').carousel('pause');
-
-            });
-            var next = 2, previous = 1, nb_diapo = 2, ;
-
-            $("#btn-right").click(function () {
-                if (next < nb_diapo) {
-                    next += 1, previous += 1;
-                    var path_next = "#ligne" + next.toString()
-                    var path_previous = "#ligne" + previous.toString()
-                    $(this).attr("href", path_next)
-                    $("#btn-left").attr("href", path_previous)
-                }
-            });
-            $("#btn-left").click(function () {
-                if (previous > 1) {
-                    next -= 1, previous -= 1;
-                    var path_next = "#ligne" + next.toString()
-                    var path_previous = "#ligne" + previous.toString()
-                    $(this).attr("href", path_previous)
-                    $("#btn-right").attr("href", path_next)
-                } else if (previous == 1) {
-                    $(this).attr("href", "#diapo-show")
-                }
-            });
-            $("#btn3").click(function () {
-                $("#test3").val("Dolly Duck");
-            });
-        });
 
 
 

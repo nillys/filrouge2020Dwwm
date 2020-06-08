@@ -1,5 +1,6 @@
 *{
     scroll-behavior: smooth !important;
+    padding: 0;
   }
 
 
@@ -135,6 +136,14 @@ display: flex;
     width: 0px;
     background: transparent; /* make scrollbar transparent */
 }
+
+#diapositive-ligne-1{
+    background-image: url('Ressource_image/spring-276014_1920.jpg');background-size: 150%;
+}
+#diapositive-ligne-2{
+    background-image: url('Ressource_image/spring-276014_1920.jpg');background-size: 150%;
+}
+
 #diapo1{
     /* background-image: url('Ressource_image/montagne.jpg'); */
 }
@@ -164,6 +173,15 @@ display: flex;
 }
 .carousel_control:hover{
     width: 10%;
+    box-shadow: black 0px 0 10px 1px;
+}
+.carousel_control:focus{
+    opacity: 0;
+    box-shadow: black 0 0 10px 1px;
+}
+.carousel_control:focus:hover{
+    opacity: 0.7;
+    width: 10%;
     box-shadow: black 0 0 10px 1px;
 }
 
@@ -189,6 +207,7 @@ display: flex;
 .carousel-container .carousel-inner{
     height:100%;
     width: 100%;
+    text-shadow: black 0 0 5px,black 0 0 2px,black 0 0 10px,black 0 0 20px;
 }
 
 .description{
