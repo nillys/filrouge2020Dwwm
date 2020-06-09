@@ -13,7 +13,7 @@
     <script>
         $(document).ready(function () {
 
-            var next = 2, previous = 1, nb_diapo = 2;
+            var next = 2, previous = 1, nb_diapo = 2, list_titre_1 = ["Un monde meilleurs", "Le monde de Winnie"];
             $("#toggler").click(function () {
                 $("#ou").fadeToggle("slow");
                 $("#last_phrase").hide();
@@ -48,14 +48,20 @@
                 }
             });
 
-
+            // FONCTION DES BOUTONS NEXT ET PREVIOUS 
+            var i = 0;
             $("#btn-right").click(function () {
                 if (next < nb_diapo) {
                     next += 1, previous += 1;
-                    var path_next = "#ligne" + next.toString()
-                    var path_previous = "#ligne" + previous.toString()
-                    $(this).attr("href", path_next)
-                    $("#btn-left").attr("href", path_previous)
+                    var path_next = "#ligne" + next.toString();
+                    var path_previous = "#ligne" + previous.toString();
+                    $(this).attr("href", path_next);
+                    $("#btn-left").attr("href", path_previous);
+
+                }
+                if (i < (nb_diapo - 1)) {
+                    i = i + 1;
+                    $("#titre_ligne").text(list_titre_1[i])
                 }
             });
             $("#btn-left").click(function () {
@@ -65,6 +71,10 @@
                     var path_previous = "#ligne" + previous.toString()
                     $(this).attr("href", path_previous)
                     $("#btn-right").attr("href", path_next)
+                }
+                if (i > 0){
+                i = i - 1;
+                $("#titre_ligne").text(list_titre_1[i])
                 }
             });
 
@@ -83,9 +93,11 @@
                     <h2 class="main_title ">Ou je vous propose d'aller !</h2>
                     <div id="intro">
                         <p>
-                        <h1>UN MONDE EVOLUÉ :</h1><em><br><br>Libre , intéligent , axé sur le bonheur et l'épanouissement de
-                        l'individu <strong>Décentralisé, mais ordoné dirigé par le bon sens l'intéligence de
-                            chacun</strong>.<br><br><span style="font-style: italic;font-size: larger;"></em>ET</span></p>
+                        <h1>UN MONDE EVOLUÉ :</h1><em><br><br>Libre , intéligent , axé sur le bonheur et
+                            l'épanouissement de
+                            l'individu <strong>Décentralisé, mais ordoné dirigé par le bon sens l'intéligence de
+                                chacun</strong>.<br><br><span
+                                style="font-style: italic;font-size: larger;"></em>ET</span></p>
                     </div>
                     <ul>
                         <li>Ou apprendre et vivre est un droit </li>
@@ -94,8 +106,8 @@
                         <li>Un monde ou tout circule en permanence selon ce qui est le plus profitable pour chacun : les
                             idées , le matériel</li>
                     </ul>
-                    <p ><span id="last_phrase">Ce monde est déjà la <em>il suffit d'agir pour le</span><span></span><br><br> <span
-                         id="toggler" >réveler</span></em></p>
+                    <p><span id="last_phrase">Ce monde est déjà la <em>il suffit d'agir pour
+                                le</span><span></span><br><br> <span id="toggler">réveler</span></em></p>
                     <div class="container-fluid">
                         <div class="row" style="">
 
@@ -122,7 +134,7 @@
 
                     </div>
                     <div class="title_panel">
-                        <h2>Un monde meilleurs</h2>
+                        <h2 id="titre_ligne">Un monde meilleurs</h2>
                         <p id="compteur"></p>
                     </div>
                 </div>
