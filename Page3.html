@@ -6,7 +6,6 @@
     <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="Design.css">
     <link type="text/css" rel="stylesheet" href="Page3.css">
-    <link type="text/css" rel="stylesheet" href="Ressource_code/aos-master/aos-master/dist/aos.css">
     <link rel="stylesheet" type="text/css"
         href="Ressource_icone/open-iconic-master/open-iconic-master/font/css/open-iconic-bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,56 +16,57 @@
             var next = 2, previous = 1, nb_diapo = 2;
             $("#toggler").click(function () {
                 $("#ou").fadeToggle("slow");
-                if ($(this).text() == "Replier"){
+                $("#last_phrase").hide();
+                if ($(this).text() == "Cacher") {
                     $(this).text("Révéler");
-                }else{
-                    $(this).text("Replier");
+                } else {
+                    $(this).text("Cacher");
                 }
-                
+
                 // $("#last_phrase").hide();
                 $("#diapositive-ligne1-1").animate({
                     height: "75%",
                     width: "75%"
-                }, 3000,function(){
-                    $("#diapo1 *").css("display","block");
+                }, 3000, function () {
+                    $("#diapo1 *").css("display", "block");
                 })
-        
+
 
             });
             $("#diapositive-ligne1-1").on({
-                mouseenter: function(){
+                mouseenter: function () {
                     $(this).animate({
                         height: "+=20px",
                         width: "+=20px",
                     });
-            },
-                mouseleave: function(){
+                },
+                mouseleave: function () {
                     $(this).animate({
                         height: "-=20px",
                         width: "-=20px"
                     });
                 }
             });
-            
-   
-        $("#btn-right").click(function () {
-            if (next < nb_diapo) {
-                next += 1, previous += 1;
-                var path_next = "#ligne" + next.toString()
-                var path_previous = "#ligne" + previous.toString()
-                $(this).attr("href", path_next)
-                $("#btn-left").attr("href", path_previous)
-            }
-        });
-        $("#btn-left").click(function () {
-            if (previous > 1) {
-                next -= 1, previous -= 1;
-                var path_next = "#ligne" + next.toString()
-                var path_previous = "#ligne" + previous.toString()
-                $(this).attr("href", path_previous)
-                $("#btn-right").attr("href", path_next)
-            }
-        });
+
+
+            $("#btn-right").click(function () {
+                if (next < nb_diapo) {
+                    next += 1, previous += 1;
+                    var path_next = "#ligne" + next.toString()
+                    var path_previous = "#ligne" + previous.toString()
+                    $(this).attr("href", path_next)
+                    $("#btn-left").attr("href", path_previous)
+                }
+            });
+            $("#btn-left").click(function () {
+                if (previous > 1) {
+                    next -= 1, previous -= 1;
+                    var path_next = "#ligne" + next.toString()
+                    var path_previous = "#ligne" + previous.toString()
+                    $(this).attr("href", path_previous)
+                    $("#btn-right").attr("href", path_next)
+                }
+            });
 
         });</script>
 </head>
@@ -78,22 +78,24 @@
     <button type="button" onclick="increment('nombre_tonne_co2',1.24)">Ajouter</button> -->
     <div class="container-fluid">
         <div class="row justify-content-center" style="height:100vh;">
-            <div class="col-lg-3 border" style="padding:0;">
+            <div class="col-lg-3 border" style="max-height: 100vh;padding:0;">
                 <div class="speech_container">
                     <h2 class="main_title ">Ou je vous propose d'aller !</h2>
-                    <p>
-                    <h1>Un monde évolué :</h1><br><br>Libre , intéligent , axé sur le bonheur et l'épanouissement de
-                    l'individu <strong>Décentralisé, mais ordoné dirigé par le bon sens l'intéligence de
-                        chacun</strong>.<br><br><span style="font-style: italic;font-size: larger;">ET</span></p>
+                    <div id="intro">
+                        <p>
+                        <h1>UN MONDE EVOLUÉ :</h1><em><br><br>Libre , intéligent , axé sur le bonheur et l'épanouissement de
+                        l'individu <strong>Décentralisé, mais ordoné dirigé par le bon sens l'intéligence de
+                            chacun</strong>.<br><br><span style="font-style: italic;font-size: larger;"></em>ET</span></p>
+                    </div>
                     <ul>
                         <li>Ou apprendre et vivre est un droit </li>
                         <li>Un monde de gens libre , de partage , ou l'individu peut éxister tel qu'il est vraiment</li>
                         <li>Sans rapport de force , de domination , de subordination</li>
-                        <li>Un monde ou tout circule en permanence selon ce qui est le plus profitable pour chacun: les
+                        <li>Un monde ou tout circule en permanence selon ce qui est le plus profitable pour chacun : les
                             idées , le matériel</li>
                     </ul>
-                    <p id="last_phrase">Ce monde est déjà la <em>il suffit d'agir pour le <span
-                                id="toggler">réveler</span></em></p>
+                    <p ><span id="last_phrase">Ce monde est déjà la <em>il suffit d'agir pour le</span><span></span><br><br> <span
+                         id="toggler" >réveler</span></em></p>
                     <div class="container-fluid">
                         <div class="row" style="">
 
