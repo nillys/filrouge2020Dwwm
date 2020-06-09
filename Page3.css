@@ -189,6 +189,7 @@ display: flex;
 #diapositive-ligne1-1{
     height:0;
     width:0;
+    opacity: 0;
 }
 
 .diapo{
@@ -200,11 +201,11 @@ display: flex;
     background: transparent; /* make scrollbar transparent */
 }
 
-#diapositive-ligne-1{
+#diapositive-ligne1-1{
     background-image: url('Ressource_image/spring-276014_1920.jpg');background-size: 150%;
 }
-#diapositive-ligne-2{
-    background-image: url('Ressource_image/spring-276014_1920.jpg');background-size: 150%;
+#diapositive-ligne2-2{
+    background-image: url('Ressource_image/Trefle_naissance.jpg');background-size: 150%;
 }
 
 #diapo1 *{
