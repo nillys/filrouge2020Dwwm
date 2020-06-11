@@ -13,7 +13,7 @@
     <script>
         $(document).ready(function () {
 
-            var next = 2, previous = 1, nb_diapo = 2, list_titre_1 = ["L'environnement Naturel", "Les inégalités"], list_img_diapo_ligne = ['Ressource_image/deforestation-405749_1920.jpg', 'Ressource_image/rhino-lying-on-ground-near-tree-1145513.jpg', 'Ressource_image/décharge.jpeg'];
+            var next = 2, previous = 1, nb_diapo = 2, list_titre_1 = ["L'environnement Naturel", "Les inégalités"], nb_diapo_ligne1 = 3, list_img_diapo_ligne1 = ['Ressource_image/deforestation-405749_1920.jpg', 'Ressource_image/rhino-lying-on-ground-near-tree-1145513.jpg', 'Ressource_image/décharge.jpeg'],list_img_diapo_ligne2 = ['Ressource_image/inegalité eau potable.jpg','Ressource_image/homeless-845752_1920.jpg'];
             $("#toggler").click(function () {
                 $("#ou").fadeToggle("slow");
                 $("#last_phrase").hide();
@@ -30,7 +30,7 @@
                     opacity: "1",
                     left: "0"
                 }, 3000, function () {
-                    $("#diapo1 *").css("display", "flex");
+                    $("#diapo1_1 *").css("display", "flex");
                 })
 
 
@@ -49,14 +49,17 @@
                     });
                 }
             });
+
+            //BOUTON LIGNE 1 CHANGER DIAPO
+
             var i1 = 0;
             $("#command_ligne_1_next").click(function () {
-                if (i1 < (list_img_diapo_ligne.length - 1)) {
+                if (i1 < (list_img_diapo_ligne1.length - 1)) {
                     i1 = i1 + 1;
                     // $("#img-fond-ligne1").css("opacity", "0")
                     // $("#diapositive-ligne1-1").css("opacity", "0");
-                    $("#img-fond-ligne1").attr("src", list_img_diapo_ligne[i1]);
-                    $("#diapositive-ligne1-1").css("backgroundImage", "url(" + list_img_diapo_ligne[i1] + ")");
+                    $("#img-fond-ligne1").attr("src", list_img_diapo_ligne1[i1]);
+                    $("#diapositive-ligne1-1").css("backgroundImage", "url(" + list_img_diapo_ligne1[i1] + ")");
                     // $("#img-fond-ligne1").animate({
                     //     opacity : '1'
                     // }, 1000)
@@ -65,18 +68,70 @@
                     // }, 1000)
 
 
+                } else {
+                    i1 = 0;
+                    $("#img-fond-ligne1").attr("src", list_img_diapo_ligne1[i1]);
+                    $("#diapositive-ligne1-1").css("backgroundImage", "url(" + list_img_diapo_ligne1[i1] + ")");
                 }
 
             });
 
             $("#command_ligne_1_previous").click(function () {
-
-                i1 = i1 - 1;
-                $("#img-fond-ligne1").attr("src", list_img_diapo_ligne[i1]);
-                $("#diapositive-ligne1-1").css("backgroundImage", "url(" + list_img_diapo_ligne[i1] + ")");
+                if (i1 > 0) {
+                    i1 = i1 - 1;
+                    $("#img-fond-ligne1").attr("src", list_img_diapo_ligne1[i1]);
+                    $("#diapositive-ligne1-1").css("backgroundImage", "url(" + list_img_diapo_ligne1[i1] + ")");
+                } else {
+                    i1 = (list_img_diapo_ligne1.length - 1)
+                    $("#img-fond-ligne1").attr("src", list_img_diapo_ligne1[i1]);
+                    $("#diapositive-ligne1-1").css("backgroundImage", "url(" + list_img_diapo_ligne1[i1] + ")");
+                }
 
 
             });
+
+// BOUTON LIGNE 2 CHANGER DIAPO
+
+            var i2 = 0;
+            $("#command_ligne_2_next").click(function () {
+   
+                if (i2 < (list_img_diapo_ligne2.length - 1)) {
+                    i2 = i2 + 1;
+                    // $("#img-fond-ligne1").css("opacity", "0")
+                    // $("#diapositive-ligne1-1").css("opacity", "0");
+                    $("#img-fond-ligne2").attr("src", list_img_diapo_ligne2[i2]);
+                    $("#diapositive-ligne2-1").css("backgroundImage", "url(" + list_img_diapo_ligne2[i2] + ")");
+                    // $("#img-fond-ligne1").animate({
+                    //     opacity : '1'
+                    // }, 1000)
+                    // $("#diapositive-ligne1-1").animate({
+                    //     opacity : '1'
+                    // }, 1000)
+
+
+                } else {
+                    i2 = 0;
+                    $("#img-fond-ligne2").attr("src", list_img_diapo_ligne2[i2]);
+                    $("#diapositive-ligne2-1").css("backgroundImage", "url(" + list_img_diapo_ligne2[i2] + ")");
+                }
+
+            });
+
+            $("#command_ligne_2_previous").click(function () {
+
+                if (i2 > 0) {
+                    i2 = i2 - 1;
+                    $("#img-fond-ligne1").attr("src", list_img_diapo_ligne2[i2]);
+                    $("#diapositive-ligne2-1").css("backgroundImage", "url(" + list_img_diapo_ligne2[i2] + ")");
+                } else {
+                    i2 = (list_img_diapo_ligne.length - 1)
+                    $("#img-fond-ligne1").attr("src", list_img_diapo_ligne[i2]);
+                    $("#diapositive-ligne2-1").css("backgroundImage", "url(" + list_img_diapo_ligne2[i2] + ")");
+                }
+
+
+            });
+
             // FONCTION DES BOUTONS NEXT ET PREVIOUS 
             var i = 0;
             $("#btn-right").click(function () {
@@ -107,7 +162,10 @@
                 }
             });
 
-        });</script>
+        });
+
+
+    </script>
 </head>
 
 <body>
@@ -184,33 +242,39 @@
 
                                 </ol>
                                 <div class="carousel-inner">
-                                    <div id="diapo1" class="carousel-item active">
+                                    <div id="diapo1_1" class="carousel-item active">
                                         <div class="diapo">
                                             <h1 id="title" style="color:white;">Ca donne à réfléchir : </h1>
-                                            <h5>La Terre est agée de 4,6 milliards d'années. Ramenons ça à 46 ans.
-                                                Nous sommes là depuis 4 heures. Notre révolution industrielle a commencé
-                                                il y a une minute.
-                                                Dans cet intervalle, nous avons détruit plus de 50% des forêts de la
+                                            <h5 style="font-style: italic;">La Terre est agée de 4,6 milliards
+                                                d'années.<br>Ramenons ça à 46 ans.
+                                                Nous sommes là depuis 4 heures.<br> Notre révolution industrielle a
+                                                commencé
+                                                il y a une minute.</span></h5>
+                                            <h5 style="font-weight: bold;">Dans cet intervalle, nous avons détruit plus
+                                                de 50% des forêts de la
                                                 planète.</h5>
 
                                         </div>
                                     </div>
 
-                                    <div id="diapo2" class="carousel-item">
+                                    <div id="diapo1_2" class="carousel-item">
                                         <div class="diapo">
                                             <h1 style="color:white;">1 espèce animale ou végétale sur 8 est menacée
                                                 d’extinction imminente </h1>
                                             <div class="carousel-caption d-none d-md-block">
 
                                                 <h5>La cause principale est la destruction des écosystèmes et des
-                                                    habitats des espèces animales. La plate-forme intergouvernementale
+                                                    habitats des espèces animales.</h5>
+                                                <h5> La plate-forme intergouvernementale
                                                     scientifique et politique sur la biodiversité et les services
                                                     écosystémiques (IPBES)
-                                                    a tiré la sonnette d'alarme le 6 mai dernier. Elle estime à un
+                                                    a tiré la sonnette d'alarme le 6 mai 2019 . Elle estime à un
                                                     million (1 sur 8) le nombre d'espèces qui risquent de disparaître
                                                     sous peu. </h5>
 
-<a href="https://photo.neonmag.fr/17-chiffres-terrifiants-sur-la-crise-ecologique-35592#1-espece-animale-ou-vegetale-sur-8-est-menacee-d-extinction-imminente-617256">source : </a>
+                                                <a
+                                                    href="https://photo.neonmag.fr/17-chiffres-terrifiants-sur-la-crise-ecologique-35592#1-espece-animale-ou-vegetale-sur-8-est-menacee-d-extinction-imminente-617256">source
+                                                    : </a>
                                             </div>
                                         </div>
                                     </div>
@@ -220,7 +284,8 @@
                                                 tonnes de déchet par an</h1>
                                             <div class="carousel-caption d-none d-md-block">
 
-                                                <h5 ><br><br><span style="text-decoration: underline;"> 33% ne seraient pas traités correctement.</span><br><br> 
+                                                <h5><br><br><span style="text-decoration: underline;"> 33% ne seraient
+                                                        pas traités correctement.</span><br><br>
                                                     Un chiffre qui va aller
                                                     en grandissant dans les années qui viennent, à cause de
                                                     l’augmentation de la population et de l’occidentalisation de nos
@@ -265,8 +330,8 @@
                 <!-- LIGNE 2 -->
 
                 <div class="ligne" id="ligne2">
-                    <img src="Ressource_image/Trefle_naissance.jpg">
-                    <div id="diapositive-ligne2-2" class="ligne_diapositive shrink-content">
+                    <img id="img-fond-ligne2" src="Ressource_image/inegalité eau potable.jpg">
+                    <div id="diapositive-ligne2-1" class="ligne_diapositive shrink-content">
                         <div class="carousel-container">
 
 
@@ -278,45 +343,64 @@
 
                                 </ol>
                                 <div class="carousel-inner">
-                                    <div id="diapo1" class="carousel-item active">
+                                    <div id="diapo2_1" class="carousel-item active">
                                         <div class="diapo">
-                                            <h1 id="title" style="color:white;">Le monde produirait 2,01 milliard de
-                                                tonnes de déchet par an</h1>
-                                            <div class="carousel-caption d-none d-md-block">
+                                            <h1 id="title" style="color:white;">11 % de la population mondiale  n’a pas
+                                                accès à l’eau potable</h1>
+                                            <h5>Soit près d'un milliard de personnes</h5>
+                                            <h5>ceux qui n’y ont pas accès sur place sont forcés de consacrer une grande
+                                                part de leur temps et de leur énergie à s’approvisionner, en se
+                                                déplaçant vers des sources aléatoires et dont la qualité est mal
+                                                contrôlée</h5>
+                                            <h5>l’eau souillée est l’un des vecteurs majeurs des maladies qui font le
+                                                plus de morts sur la planète,
+                                            </h5>
+                                            <a href="https://www.inegalites.fr/L-acces-a-l-eau-potable-dans-le-monde">source
+                                                : </a>
 
-                                                <h5>33 % ne seraient pas traités correctement. Un chiffre qui va aller
-                                                    en grandissant dans les années qui viennent, à cause de
-                                                    l’augmentation de la population et de l’occidentalisation de nos
-                                                    modes de vie.
-
-                                                    Des montagnes de déchets, qui posent des problèmes en termes
-                                                    environnementaux (pollution des sols, des eaux, menaces pour la
-                                                    biodiversité…) mais aussi sociaux, surtout dans les pays du Sud :
-                                                    émanations toxiques des déchets brûlés, effondrement de décharges
-                                                    sauvages…</h5>
-                                                <p>le monde a produit en 2016, 242 millions de tonnes de déchets
-                                                    plastique !On estime que seuls 9 % du plastique produit est recyclé
-                                                    dans le monde
-                                                </p>
-                                                <a href="https://www.consoglobe.com/recyclage-dans-le-monde-cg#source1">Source
-                                                    : </a>
-                                            </div>
                                         </div>
                                     </div>
 
-                                    <div id="diapo2" class="carousel-item">
+                                    <div id="diapo2_2" class="carousel-item">
                                         <div class="diapo">
-                                            <h1 style="color:white;">Un meilleurs monde</h1>
-                                            <div class="carousel-caption d-none d-md-block">
+                                            <h1 style="color:white;">200 000 sdf estimé en france</h1>
 
-                                                <h5>La souffrance , l'éxclusion , la misère, l'asservissement , la
-                                                    violence, la haine </h5>
-                                                <p>et ... <strong>Tout ce qui a une origine</strong> peut avoir une fin
-                                                </p>
-                                            </div>
+
+                                            <h5>25% serait des mineurs ...</h5>
+                                            <h5>maladie , érance , solitidue , alcoolisme , regard des autres ,
+                                                désespoir, usure.<br>
+                                                L'éxclusion morbide est le reflet de la volonté indubitable pour le
+                                                sytème actuel de chercher l'absolu monopole , ce qui ne rentre pas
+                                                dedans se meurt lentement.
+                                            </h5>
+                                            <a
+                                                href="https://www.ledauphine.com/france-monde/2019/08/06/les-sdf-et-sans-abri-vivent-(et-meurent)-aussi-pendant-l-ete">source
+                                                : </a>
                                         </div>
                                     </div>
+                                    <div id="diapo2.3" class="carousel-item ">
+                                        <div class="diapo">
+                                            <h1 id="title" style="color:white;">Des écarts de richesses qui donnent le
+                                                vertige</h1>
 
+
+                                            <h5>La richesse des 1% les plus riches de la planète correspond à plus de
+                                                fois la richesse de 90 % de la population mondiale, soit 6,9 milliards
+                                                de personnes.</h5>
+                                            <h5> près de la moitié de la population mondiale, soit près de 3,8 milliards
+                                                de personnes, vit toujours avec moins de 5 dollars par jour.
+                                            </h5>
+
+                                            <h5>Dans le monde, les hommes détiennent 50 % de richesses en plus que les
+                                                femmes.</h5>
+
+                                            <h5>En France, 7 milliardaires possèdent plus que les 30 % les plus pauvres,
+                                                ils étaient 8 l’année dernière.</h5>
+                                            <a href="https://www.oxfamfrance.org/rapports/celles-qui-comptent/">source :
+                                            </a>
+
+                                        </div>
+                                    </div>
 
                                 </div>
 
@@ -325,7 +409,7 @@
 
                             </div>
                             <a class="carousel_control carousel-control-prev" href="#carousel_ligne_2" role="button"
-                                data-slide="prev">
+                                data-slide="prev" id="command_ligne_2_previous">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>

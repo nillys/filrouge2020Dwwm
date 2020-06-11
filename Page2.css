@@ -219,12 +219,14 @@ color:white;
     background-image: url('Ressource_image/deforestation-405749_1920.jpg');background-size: 150%;
 }
 #diapositive-ligne2-2{
-    background-image: url('Ressource_image/Trefle_naissance.jpg');background-size: 150%;
+    background-image: url('Ressource_image/inegalité eau potable.jpg');background-size: 150%;
 }
 
-#diapo1 *{
+#diapo1_1 *{
     display: none;
 }
+
+#diapo2_1
 
 #diapo2{
     /* background-image: url('Ressource_image/Ceux\ qui\ prétend\ détenir\ la\ vérité.PNG'); */
