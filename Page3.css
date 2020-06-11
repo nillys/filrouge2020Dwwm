@@ -3,7 +3,7 @@
     padding: 0;
   }
 
-body{
+body html{
     background-image: url("Ressource_image/Liberté.jpeg");
     background-position: 50%, 50%;
 }
@@ -138,6 +138,7 @@ box-shadow: rgb(255, 255, 255) inset 0px 5px 15px -10px;
 
 #ou{
     display: none;
+  
 }
 
 .header_diapo{
@@ -169,7 +170,8 @@ display: flex;
     width: 100%;
     position: absolute;
     z-index: -1;
-    filter: blur(2px);
+    filter: blur(2px) saturate(1.5);
+
 }
 
 .shrink-content{
@@ -187,8 +189,10 @@ display: flex;
 }
 
 #diapositive-ligne1-1{
-    height:0;
-    width:0;
+    position: relative;
+    left:1500px;
+    height:10%;
+    width:10%;
     opacity: 0;
 }
 

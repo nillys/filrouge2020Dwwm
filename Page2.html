@@ -6,9 +6,108 @@
     <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="Design.css">
     <link type="text/css" rel="stylesheet" href="Page2.css">
-    <link type="text/css" rel="stylesheet" href="Ressource_code/aos-master/aos-master/dist/aos.css">
+    <link rel="stylesheet" type="text/css"
+        href="Ressource_icone/open-iconic-master/open-iconic-master/font/css/open-iconic-bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="bootstrap/js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
 
+            var next = 2, previous = 1, nb_diapo = 2, list_titre_1 = ["L'environnement Naturel", "Les inégalités"], list_img_diapo_ligne = ['Ressource_image/deforestation-405749_1920.jpg', 'Ressource_image/rhino-lying-on-ground-near-tree-1145513.jpg', 'Ressource_image/décharge.jpeg'];
+            $("#toggler").click(function () {
+                $("#ou").fadeToggle("slow");
+                $("#last_phrase").hide();
+                if ($(this).text() == "Cacher") {
+                    $(this).text("Révéler");
+                } else {
+                    $(this).text("Cacher");
+                }
+
+                // $("#last_phrase").hide();
+                $("#diapositive-ligne1-1").animate({
+                    height: "75%",
+                    width: "75%",
+                    opacity: "1",
+                    left: "0"
+                }, 3000, function () {
+                    $("#diapo1 *").css("display", "flex");
+                })
+
+
+            });
+            $(".ligne_diapositive").on({
+                mouseenter: function () {
+                    $(this).animate({
+                        height: "+=20px",
+                        width: "+=20px",
+                    });
+                },
+                mouseleave: function () {
+                    $(this).animate({
+                        height: "-=20px",
+                        width: "-=20px"
+                    });
+                }
+            });
+            var i1 = 0;
+            $("#command_ligne_1_next").click(function () {
+                if (i1 < (list_img_diapo_ligne.length - 1)) {
+                    i1 = i1 + 1;
+                    // $("#img-fond-ligne1").css("opacity", "0")
+                    // $("#diapositive-ligne1-1").css("opacity", "0");
+                    $("#img-fond-ligne1").attr("src", list_img_diapo_ligne[i1]);
+                    $("#diapositive-ligne1-1").css("backgroundImage", "url(" + list_img_diapo_ligne[i1] + ")");
+                    // $("#img-fond-ligne1").animate({
+                    //     opacity : '1'
+                    // }, 1000)
+                    // $("#diapositive-ligne1-1").animate({
+                    //     opacity : '1'
+                    // }, 1000)
+
+
+                }
+
+            });
+
+            $("#command_ligne_1_previous").click(function () {
+
+                i1 = i1 - 1;
+                $("#img-fond-ligne1").attr("src", list_img_diapo_ligne[i1]);
+                $("#diapositive-ligne1-1").css("backgroundImage", "url(" + list_img_diapo_ligne[i1] + ")");
+
+
+            });
+            // FONCTION DES BOUTONS NEXT ET PREVIOUS 
+            var i = 0;
+            $("#btn-right").click(function () {
+                if (next < nb_diapo) {
+                    next += 1, previous += 1;
+                    var path_next = "#ligne" + next.toString();
+                    var path_previous = "#ligne" + previous.toString();
+                    $(this).attr("href", path_next);
+                    $("#btn-left").attr("href", path_previous);
+
+                }
+                if (i < (nb_diapo - 1)) {
+                    i = i + 1;
+                    $("#titre_ligne").text(list_titre_1[i])
+                }
+            });
+            $("#btn-left").click(function () {
+                if (previous > 1) {
+                    next -= 1, previous -= 1;
+                    var path_next = "#ligne" + next.toString()
+                    var path_previous = "#ligne" + previous.toString()
+                    $(this).attr("href", path_previous)
+                    $("#btn-right").attr("href", path_next)
+                }
+                if (i > 0) {
+                    i = i - 1;
+                    $("#titre_ligne").text(list_titre_1[i])
+                }
+            });
+
+        });</script>
 </head>
 
 <body>
@@ -17,39 +116,230 @@
     <td id="test">Kilos/s</td></tr></table>
     <button type="button" onclick="increment('nombre_tonne_co2',1.24)">Ajouter</button> -->
     <div class="container-fluid">
-        <div class="row" style="height:100vh;">
-            <div class="col-lg-3 border" style="padding:0;">
+        <div class="row justify-content-center" style="height:100vh;">
+            <div class="col-lg-3 border" style="max-height: 100vh;padding:0;">
                 <div class="speech_container">
-                    <h2>D'ou est ce qu'on part ? </h2>
-                    <p>POUR EVOLUER : <br><br> il faut passer par la pleine <strong>acceptation et constation de la réalité </strong>.<br><br><span style="font-style: italic;font-size: larger;">Puis</span></p> <ul><li>Sans la
-                        voir comme une fatalité</li><li> ni se résigner</li><li>ni se sentir accablé</li></ul><p>Il faut <em>faire jaillir l'espoir d'un monde meilleurs</em></p>
+                    <h2 class="main_title ">D'ou est ce qu'on part ?</h2>
+                    <div id="intro">
+                        <h1>Le monde est il parfait ?</h1>
+                        <p> Pour avancer il faut passer par la pleine <strong>acceptation et
+                                constation de la réalité .</strong><br><br><span
+                                style="font-style: italic;font-size: larger;">Puis</span></p>
+
+
+                    </div>
+                    <ul>
+                        <li>Sans la
+                            voir comme une fatalité</li>
+                        <li>Ni se résigner</li>
+                        <li>Sans céder à la peur ni au défaitisme</li>
+                        <li>Ni se sentir accablé</li>
+                    </ul>
+                    <p><span id="last_phrase">Il faut <em>faire jaillir l'espoir d'un monde meilleurs</span><br><br>
+                        <span id="toggler">Voir des faits</span></em></p>
                     <div class="container-fluid">
                         <div class="row" style="">
-                            <div class="col-md-6" style="padding:0"> <a href="Page1.html"><button class="btn btn-light btn-block">Menu principal</button></a></div>
-                            <div class="col-md-6" style="padding:0"><a href="page3.html"><button class="btn btn-light btn-block">Ou on vas ?</button></a></div>
-                         
+                            <div class="col-md-6" style="padding:0"> <a href="Page1.html"><button
+                                        class="btn btn-light btn-block">Menu principal</button></a></div>
+                            <div class="col-md-6" style="padding:0"><a href="page3.html"><button
+                                        class="btn btn-light btn-block">Pour aller ou ?</button></a></div>
                         </div>
                     </div>
                 </div>
 
-            </div>
+            </div> <!-- FIN COLONNE GAUCHE -->
 
-            <div class="col-lg-9 h-100" style="overflow-y: scroll;">
-                <div class="diapo">
-                    <img src="Ressource_image/deforestation-405749_1920.jpg ">
-                    <div id="diapo1" class="shrink-content">
-                        <h1 style="color:white;"></h1>
-                        <div class="description"></div>
+            <div id="ou" class="col-lg-9 h-100 " style="overflow-y: hidden;padding: 0;">
+                <!-- BARRE DE TITRE  -->
+                <div class="main_title header_diapo sticky-top">
+                    <div class="control_panel">
+
+
+                        <a href="#ligne1" id="btn-left"><button class="btn control-button"><span
+                                    class="oi oi-arrow-thick-top"></span>Précedent</button></a>
+
+                        <a href="#ligne2" id="btn-right"><button class="btn control-button"><span
+                                    class="oi oi-arrow-thick-bottom"></span>Suivant</button></a>
+
+                    </div>
+                    <div class="title_panel">
+                        <h2 id="titre_ligne">L'environnement Naturel</h2>
+                        <p id="compteur"></p>
+                    </div>
+                </div><!-- FIN BARRE DE TITRE  -->
+
+                <!-- LIGNE 1 -->
+
+                <div class="ligne" id="ligne1">
+                    <img id="img-fond-ligne1" src="Ressource_image/deforestation-405749_1920.jpg ">
+                    <div id="diapositive-ligne1-1" class="ligne_diapositive shrink-content">
+                        <div class="carousel-container">
+
+
+                            <div id="carousel_ligne_1" class="carousel_index carousel slide" data-ride="carousel"
+                                data-interval="false">
+                                <ol class="carousel-indicators">
+                                    <!-- <li data-target="#carousel_ligne_1" data-slide-to="0" class="active"></li> -->
+                                    <!-- <li data-target="#carousel_ligne_1" data-slide-to="1"></li> -->
+
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div id="diapo1" class="carousel-item active">
+                                        <div class="diapo">
+                                            <h1 id="title" style="color:white;">Ca donne à réfléchir : </h1>
+                                            <h5>La Terre est agée de 4,6 milliards d'années. Ramenons ça à 46 ans.
+                                                Nous sommes là depuis 4 heures. Notre révolution industrielle a commencé
+                                                il y a une minute.
+                                                Dans cet intervalle, nous avons détruit plus de 50% des forêts de la
+                                                planète.</h5>
+
+                                        </div>
+                                    </div>
+
+                                    <div id="diapo2" class="carousel-item">
+                                        <div class="diapo">
+                                            <h1 style="color:white;">1 espèce animale ou végétale sur 8 est menacée
+                                                d’extinction imminente </h1>
+                                            <div class="carousel-caption d-none d-md-block">
+
+                                                <h5>La cause principale est la destruction des écosystèmes et des
+                                                    habitats des espèces animales. La plate-forme intergouvernementale
+                                                    scientifique et politique sur la biodiversité et les services
+                                                    écosystémiques (IPBES)
+                                                    a tiré la sonnette d'alarme le 6 mai dernier. Elle estime à un
+                                                    million (1 sur 8) le nombre d'espèces qui risquent de disparaître
+                                                    sous peu. </h5>
+
+<a href="https://photo.neonmag.fr/17-chiffres-terrifiants-sur-la-crise-ecologique-35592#1-espece-animale-ou-vegetale-sur-8-est-menacee-d-extinction-imminente-617256">source : </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="diapo2" class="carousel-item">
+                                        <div class="diapo">
+                                            <h1 id="title" style="color:white;">Le monde produirait 2,01 milliard de
+                                                tonnes de déchet par an</h1>
+                                            <div class="carousel-caption d-none d-md-block">
+
+                                                <h5 ><br><br><span style="text-decoration: underline;"> 33% ne seraient pas traités correctement.</span><br><br> 
+                                                    Un chiffre qui va aller
+                                                    en grandissant dans les années qui viennent, à cause de
+                                                    l’augmentation de la population et de l’occidentalisation de nos
+                                                    modes de vie.
+
+                                                    Des montagnes de déchets, qui posent des problèmes en termes
+                                                    environnementaux (pollution des sols, des eaux, menaces pour la
+                                                    biodiversité…) mais aussi sociaux, surtout dans les pays du Sud :
+                                                    émanations toxiques des déchets brûlés, effondrement de décharges
+                                                    sauvages…</h5>
+                                                <p>le monde a produit en 2016, 242 millions de tonnes de déchets
+                                                    plastique !On estime que seuls 9 % du plastique produit est recyclé
+                                                    dans le monde
+                                                </p>
+                                                <a href="https://www.consoglobe.com/recyclage-dans-le-monde-cg#source1">Source
+                                                    : </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+
+                            </div>
+                            <a class="carousel_control carousel-control-prev" href="#carousel_ligne_1" role="button"
+                                data-slide="prev" id="command_ligne_1_previous">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a id="command_ligne_1_next" class="carousel_control carousel-control-next"
+                                href="#carousel_ligne_1" role="button" data-slide="next">
+                                <span class=" carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="diapo">
-                    <img src="Ressource_image/smoke-258786_1920.jpg ">
-                    <div id="diapo2" class="shrink-content">
-                        
-                        <div class="description"></div>
+                <!--FIN DE LIGNE-->
+
+                <!-- LIGNE 2 -->
+
+                <div class="ligne" id="ligne2">
+                    <img src="Ressource_image/Trefle_naissance.jpg">
+                    <div id="diapositive-ligne2-2" class="ligne_diapositive shrink-content">
+                        <div class="carousel-container">
+
+
+                            <div id="carousel_ligne_2" class="carousel_index carousel slide" data-ride="carousel"
+                                data-interval="false">
+                                <ol class="carousel-indicators">
+                                    <!-- <li data-target="#carousel_ligne_1" data-slide-to="0" class="active"></li> -->
+                                    <!-- <li data-target="#carousel_ligne_1" data-slide-to="1"></li> -->
+
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div id="diapo1" class="carousel-item active">
+                                        <div class="diapo">
+                                            <h1 id="title" style="color:white;">Le monde produirait 2,01 milliard de
+                                                tonnes de déchet par an</h1>
+                                            <div class="carousel-caption d-none d-md-block">
+
+                                                <h5>33 % ne seraient pas traités correctement. Un chiffre qui va aller
+                                                    en grandissant dans les années qui viennent, à cause de
+                                                    l’augmentation de la population et de l’occidentalisation de nos
+                                                    modes de vie.
+
+                                                    Des montagnes de déchets, qui posent des problèmes en termes
+                                                    environnementaux (pollution des sols, des eaux, menaces pour la
+                                                    biodiversité…) mais aussi sociaux, surtout dans les pays du Sud :
+                                                    émanations toxiques des déchets brûlés, effondrement de décharges
+                                                    sauvages…</h5>
+                                                <p>le monde a produit en 2016, 242 millions de tonnes de déchets
+                                                    plastique !On estime que seuls 9 % du plastique produit est recyclé
+                                                    dans le monde
+                                                </p>
+                                                <a href="https://www.consoglobe.com/recyclage-dans-le-monde-cg#source1">Source
+                                                    : </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="diapo2" class="carousel-item">
+                                        <div class="diapo">
+                                            <h1 style="color:white;">Un meilleurs monde</h1>
+                                            <div class="carousel-caption d-none d-md-block">
+
+                                                <h5>La souffrance , l'éxclusion , la misère, l'asservissement , la
+                                                    violence, la haine </h5>
+                                                <p>et ... <strong>Tout ce qui a une origine</strong> peut avoir une fin
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+
+
+                            </div>
+                            <a class="carousel_control carousel-control-prev" href="#carousel_ligne_2" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a id="command_ligne_2_next" class="carousel_control carousel-control-next"
+                                href="#carousel_ligne_2" role="button" data-slide="next">
+                                <span class=" carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <!--FIN DE LIGNE-->
+
+            </div> <!-- FIN COLONNE DROITE -->
         </div>
     </div>
 
@@ -69,7 +359,11 @@
 
     </script>
 
-</body>
 
+    <script src="Ressource_code/aos-master/os-master/dist/aos.js">$(document).ready(function () {
+            $("button").click(function () {
+                $("p").hide();
+            });
+        });</script>
 
-</html>
+    <script src="bootstrap/js/bootstrap.bundle.js"></script>
