@@ -5,6 +5,19 @@ button{
     margin: 0px ;
 }
 
+a *{
+    color:black;
+
+}
+a *:hover *{
+    color:black;
+    text-decoration: none;
+}
+a:focus{
+    color: black;
+    text-decoration: none;
+}
+
 html {
     scroll-behavior: smooth;
   }
@@ -14,14 +27,9 @@ html {
     color: white;
     text-shadow: white 0 0 10px;
     background-position: 70% 50%;
-
+    height: 25vh;
 }
 
-.en_tete{
-    height:100vh;
-    box-shadow: black inset 0px 0px 40%;
-    color:blue;
-}
 
 .menu-principal{
     box-shadow: black 0 0 10px 1px;
@@ -33,21 +41,22 @@ html {
 
 .nav-item{
     text-align: center;
-    transition: all 2s;
+    transition: all 1s;
+    
 }
 
 .nav-item:hover{
-    background-color: cornflowerblue;
+    background-color: #2e2f5d;
     border-radius: 1em;
-    box-shadow: cornflowerblue 0 0 1px,rgb(254, 254, 255) 0 5px 10px 2px;
-    width: 300px;
+    box-shadow: #2e2f5d 0 0 1px,rgb(254, 254, 255) 0 5px 10px 2px;
+    
 }
 
 
 .navbar li:active{
     background-color: black;
     border-radius: 1em;
-    box-shadow: cornflowerblue inset 0 0 1px,rgb(254, 254, 255) 0 5px 10px 2px;
+    box-shadow: #2e2f5d inset 0 0 1px,rgb(254, 254, 255) 0 5px 10px 2px;
 }
 
 .diapo-first-bg{
@@ -98,7 +107,7 @@ html {
     background-size: cover;
     text-align: center;
     position: relative;
-    height: 40vh;
+    height: 70vh;
 }
 
 #carousel_sommaire .carousel-item h1{
@@ -182,7 +191,7 @@ html {
     height:30px;
     box-shadow: 0 0 5px;
     position: relative;
-    z-index: 9999;
+    z-index: 2;
     font-size: 1em;
     padding: 0;
 }
@@ -252,7 +261,7 @@ width: 150px;
 
 .carousel-container{
     display:block;
-    background-color: cornflowerblue;
+    background-color: #2e2f5d;
     width: 100%;
     box-shadow: 0 5px 5px;
 }
@@ -275,4 +284,35 @@ width: 150px;
 
 #index4{
     min-height: 100%;
+}
+
+#resume{
+    padding:3em;
+   
+}
+
+#resume *{
+    color: rgb(56, 36, 0);
+}
+
+#la_demarche_global{
+    height: 50vh;
+
+}
+
+#background_1{
+    min-height: 50vh;
+    background-image: url('Ressource_image/dandelion-2817950_1920.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+    color: white;
+    text-shadow: black 0 0 10px;
+ 
+}
+
+#background_1 h2{
+    font-size: 3em;
 }
