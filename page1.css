@@ -29,7 +29,7 @@ html{
     color: white;
     text-shadow: white 0 0 10px;
     background-position: 70% 50%;
-    height: 25vh;
+
 }
 
 
@@ -315,7 +315,14 @@ width: 150px;
     justify-content: center;
     align-items: center;
 }
+.rubrique_question li,p{
+cursor: pointer;
+transition: all 1.3s;
+}
 
+.rubrique_question li:hover{
+    font-size: 1.3em;
+}
 .rubrique li{
     font-size: 1.2em;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -337,32 +344,39 @@ width: 150px;
 
 
 .carousel_faq_rubrique .carousel-inner{
-    background-color: oldlace;
+ 
     height: 100%;
+    
 }
 
 .carousel_faq_rubrique .carousel-item{
     text-align: center;
     position: relative;
     height: 100%;
+  
 }
 
-.carousel_faq_rubrique .content{
-
+.content{
+    background: rgb(255,255,255);
+    background: -moz-linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(28,9,121,0.2889356426164216) 53%, rgba(255,255,255,1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(28,9,121,0.2889356426164216) 53%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(28,9,121,0.2889356426164216) 53%, rgba(255,255,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1); 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: orangered;
+    height: 100%;
+    padding: 0.5em;
 }
 
-.carousel_faq_rubrique .carousel-item h1{
+.carousel_faq_rubrique_2 .carousel-item h1{
     color: white;
     text-shadow: 0 0 10px white,0 0 20px black;
     margin-top:2%;
 }
 
-.carousel_faq_rubrique .carousel-item h5 ,.carousel_faq_rubrique .carousel-item p{
+.carousel_faq_rubrique_2 .carousel-item h5 ,.carousel_faq_rubrique_2 .carousel-item p{
     
     text-shadow: 0 0 10px white,0 0 20px black;
     background-color: rgba(0, 0, 0, 0.596);
@@ -426,16 +440,19 @@ width: 150px;
 #rubrique1_photo{
     background-image: url('Ressource_image/dandelion-2817950_1920.jpg');
     background-size: center;
-    background-position: 48% 65%;
+    background-position: 50% 50%;
     box-shadow: 0 0 10px black ;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
+
 
 #rubrique2_photo{
     background-image: url('Ressource_image/global-warming-2034896_1920.jpg');
     background-size: cover;
     background-position: 40% 50%;
     box-shadow: 0 0 10px black ;
+    background-attachment: fixed;
 }
 
 #background_2 img:hover{
