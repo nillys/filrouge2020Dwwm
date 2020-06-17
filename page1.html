@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 
-<html lang="fr">
+<html lang="fr" onkeydown="toggle_bonus(event)">
 
 <head>
+  <script>
+ function reload(){
+  document.location.reload(true);
+ }
+  </script>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="page1.css">
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
   <link rel="stylesheet" type="text/css"
     href="Ressource_icone/open-iconic-master/open-iconic-master/font/css/open-iconic-bootstrap.css">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
 
 </head>
 <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert"
@@ -54,7 +60,20 @@
             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Qui suis je ?
           </a>
+          
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a title="confidentiel" class="dropdown-item" href="#">Mon cv</a>
+            <a class="dropdown-item" href="#">En apprendre plus sur moi</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Comprendre mon engagement</a>
+          </div>
+        </li>
+        <li>
+          <a tittle="En cours de création" class="nav-link dropdown-toggle d-none" href="#" id="navbarDropdown2" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="bonus">
+            
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
             <a title="confidentiel" class="dropdown-item" href="#">Mon cv</a>
             <a class="dropdown-item" href="#">En apprendre plus sur moi</a>
             <div class="dropdown-divider"></div>
@@ -69,6 +88,7 @@
 
   <!-- Somaire -->
 
+  <button type="button" onclick="toggle_bonus()">dfsf</button>
   <div class="container-fluid">
     <div id="start_sommaire" class="row" style="">
       <div class="col-lg-12" style="padding:0">
@@ -438,7 +458,7 @@
 
   <!-- CORPS DE LA PAGE  -->
   <div class="container-fluid">
-    <div id="background_1" class="row">
+    <div id="background_1" class="row rubrique_background">
       <h2 class="rubrique_title">LA DEMARCHE GLOBAL : </h2>
       <h5>(Présentation général)</h5>
       <img src="Ressource_image/player on.png" style="cursor: pointer;" alt="" data-toggle="modal"
@@ -448,59 +468,74 @@
 
       <div class="col-lg-9">
         <div class="row h-100">
-          <div class="col-lg-4 h-100 rubrique_question"style="box-shadow: black 0 0 10px">
+          <div class="col-lg-4 h-100 rubrique_question" style="box-shadow: black 0 0 10px">
             <ul>
               <li data-target="#carousel_faq_rubrique_1" data-slide-to="0">Qui est à l'origine de ce projet ?</li>
-              <p data-target="#carousel_faq_rubrique_1" data-slide-to="0">(Cette personne sait elle de quoi elle parle ?)</p>
-              <li data-target="#carousel_faq_rubrique_1" data-slide-to="1">Pourquoi envisager un changement aussi global ?</li>
+              <p data-target="#carousel_faq_rubrique_1" data-slide-to="0">(Cette personne sait elle de quoi elle parle
+                ?)</p>
+              <li data-target="#carousel_faq_rubrique_1" data-slide-to="1">Pourquoi envisager un changement aussi global
+                ?</li>
               <p data-target="#carousel_faq_rubrique_1" data-slide-to="1">(Et est ce vraiment nécessaire ?)</p>
-              <li data-target="#carousel_faq_rubrique_1" data-slide-to="2">Qu'est ce que cette démarche et quelle est son but ?</li>
+              <li data-target="#carousel_faq_rubrique_1" data-slide-to="2">Qu'est ce que cette démarche et quelle est
+                son but ?</li>
               <p data-target="#carousel_faq_rubrique_1" data-slide-to="2">(Est ce vraiment réalisable ?)</p>
               <li data-target="#carousel_faq_rubrique_1" data-slide-to="3">A qui s'adresse ce projet ?</li>
               <p data-target="#carousel_faq_rubrique_1" data-slide-to="3">(Pourquoi me concerne il ?)</p>
             </ul>
           </div>
           <div class="col-lg-8 p-0 h-100">
-            <div id="carousel_faq_rubrique_1" class="carousel slide carousel_faq_rubrique" data-ride="carousel"style="height:100%;"data-slide="false">
+            <div id="carousel_faq_rubrique_1" class="carousel slide carousel_faq_rubrique" data-ride="carousel"
+              style="height:100%;" data-slide="false">
               <ol class="carousel-indicators">
                 <li data-target="#carousel_faq_rubrique_1" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel_faq_rubrique_1" data-slide-to="1"></li>
                 <li data-target="#carousel_faq_rubrique_1" data-slide-to="2"></li>
                 <li data-target="#carousel_faq_rubrique_1" data-slide-to="3"></li>
               </ol>
-              <div class="carousel-inner">  
+              <div class="carousel-inner">
                 <div class="carousel-item active">
                   <!-- <h2 class="d-flex h-100 justify-content-center align-items-center flex-column">TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2> -->
-                  <div class="content"><h2 >Je suis un jeune homme de 27 ans : <br><br><q>Avant de me lancer j'ai passé 13 ans de ma vie a chercher a comprendre le pourquoi ...<br> pourquoi les guerres , pourquoi la pauvreté pourquoi la décadence. J'ai cherché à comprendre cela, mais aussi et surtout ...</q></h2></div>
-                  
+                  <div class="content">
+                    <h2>Un jeune homme de 27 ans : <br><br><q>Avant de me lancer j'ai passé 13 ans de ma vie a chercher
+                        a comprendre le pourquoi ...<br> pourquoi les guerres , pourquoi la pauvreté pourquoi la
+                        décadence. J'ai cherché à comprendre cela, mais aussi et surtout ...</q></h2>
+                  </div>
+
 
                 </div>
                 <div class="carousel-item">
-                  <div class="content"><h2 >Tout simplement parce que le local dépend du global et inversement et que si on admet le principe que l'individu dépend de son environnement ...</h2></div>
+                  <div class="content">
+                    <h2>Tout simplement parce que le local dépend du global et inversement et que si on admet le
+                      principe que l'individu dépend de son environnement ...</h2>
+                  </div>
 
                 </div>
                 <div class="carousel-item">
-                  <div class="content"><h2 >TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2></div>
+                  <div class="content">
+                    <h2>TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2>
+                  </div>
 
                 </div>
                 <div class="carousel-item">
-                  <div class="content"><h2 >TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2></div>
+                  <div class="content">
+                    <h2>TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2>
+                  </div>
                 </div>
-               
+
 
 
 
               </div>
             </div><!-- carousel end-->
           </div>
-          
+
         </div>
       </div>
       <div id="rubrique1_photo" class="col-lg-3"></div>
     </div>
 
 
-    <div id="background_2" class="row">
+    <div id="background_2" class="row rubrique_background">
       <h2 class="rubrique_title">Le BUT : Que vous n'ayez plus besoin d'aide</h2>
       <h5>(Vous donner les moyens d'agirs !)</h5>
       <img src="Ressource_image/player on.png" style="cursor: pointer;" alt="" data-toggle="modal"
@@ -516,7 +551,8 @@
 
           <!-- CAROUSEL FAQ RUBRIQUE 2 -->
           <div class="col-lg-8 p-0 h-100">
-            <div id="carousel_faq_rubrique_2" class="carousel slide carousel_faq_rubrique" data-ride="carousel"style="height:100%;"data-slide="false">
+            <div id="carousel_faq_rubrique_2" class="carousel slide carousel_faq_rubrique" data-ride="carousel"
+              style="height:100%;" data-slide="false">
               <ol class="carousel-indicators">
                 <li data-target="#carousel_faq_rubrique_2" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel_faq_rubrique_2" data-slide-to="1"></li>
@@ -526,20 +562,28 @@
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <!-- <h2 class="d-flex h-100 justify-content-center align-items-center flex-column">TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2> -->
-                  <div class="content"><h2 >TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2></div>
-                  
+                  <div class="content">
+                    <h2>TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2>
+                  </div>
+
 
                 </div>
                 <div class="carousel-item">
-                  <div class="content"><h2 >TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2></div>
+                  <div class="content">
+                    <h2>TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2>
+                  </div>
 
                 </div>
                 <div class="carousel-item">
-                  <div class="content"><h2 >TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2></div>
+                  <div class="content">
+                    <h2>TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2>
+                  </div>
 
                 </div>
                 <div class="carousel-item">
-                  <div class="content"><h2 >TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2></div>
+                  <div class="content">
+                    <h2>TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2>
+                  </div>
                 </div>
 
 
@@ -551,13 +595,179 @@
           <div class="col-lg-4 h-100 rubrique_question" style="box-shadow: black 0 0 10px;">
             <ul>
               <li data-target="#carousel_faq_rubrique_2" data-slide-to="0">Qui est à l'origine de ce projet ?</li>
-              <p data-target="#carousel_faq_rubrique_2" data-slide-to="0">(Cette personne sait elle de quoi elle parle ?)</p>
-              <li data-target="#carousel_faq_rubrique_2" data-slide-to="1">Pourquoi envisager un changement aussi global ?</li>
+              <p data-target="#carousel_faq_rubrique_2" data-slide-to="0">(Cette personne sait elle de quoi elle parle
+                ?)</p>
+              <li data-target="#carousel_faq_rubrique_2" data-slide-to="1">Pourquoi envisager un changement aussi global
+                ?</li>
               <p data-target="#carousel_faq_rubrique_2" data-slide-to="1">(Et est ce vraiment nécessaire ?)</p>
-              <li data-target="#carousel_faq_rubrique_2" data-slide-to="2">Qu'est ce que cette démarche et quelle est son but ?</li>
+              <li data-target="#carousel_faq_rubrique_2" data-slide-to="2">Qu'est ce que cette démarche et quelle est
+                son but ?</li>
               <p data-target="#carousel_faq_rubrique_2" data-slide-to="2">(Est ce vraiment réalisable ?)</p>
               <li data-target="#carousel_faq_rubrique_2" data-slide-to="3">A qui s'adresse ce projet ?</li>
               <p data-target="#carousel_faq_rubrique_2" data-slide-to="3">(Pourquoi me concerne il ?)</p>
+            </ul>
+          </div>
+        </div>
+        <strong>
+          <h2></h2>
+        </strong>
+      </div>
+
+    </div>
+
+    <!-- TROISIEME RUBRIQUE  -->
+
+    <div id="background_3" class="row rubrique_background">
+      <h2 class="rubrique_title">Comment accomplir un projet aussi ambitieux</h2>
+      <h5>(Toute transformation consiste a faire évoluer A pour aller à B)</h5>
+      <img src="Ressource_image/player on.png" style="cursor: pointer;" alt="" data-toggle="modal"
+        data-target="#modal_demarche_global" />
+    </div>
+
+    <div id="le_pourquoi" class="row rubrique text-center">
+
+      <div id="rubrique3_photo" class="col-lg-3"></div>
+      <div class="col-lg-9 h-100">
+        <div class="row h-100">
+
+
+          <!-- CAROUSEL FAQ RUBRIQUE 2 -->
+          <div class="col-lg-8 p-0 h-100">
+            <div id="carousel_faq_rubrique_3" class="carousel slide carousel_faq_rubrique" data-ride="carousel"
+              style="height:100%;" data-slide="false">
+              <ol class="carousel-indicators">
+                <li data-target="#carousel_faq_rubrique_3" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel_faq_rubrique_3" data-slide-to="1"></li>
+                <li data-target="#carousel_faq_rubrique_3" data-slide-to="2"></li>
+                <li data-target="#carousel_faq_rubrique_3" data-slide-to="3"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <!-- <h2 class="d-flex h-100 justify-content-center align-items-center flex-column">TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2> -->
+                  <div class="content">
+                    <h2>TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2>
+                  </div>
+
+
+                </div>
+                <div class="carousel-item">
+                  <div class="content">
+                    <h2>TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2>
+                  </div>
+
+                </div>
+                <div class="carousel-item">
+                  <div class="content">
+                    <h2>TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2>
+                  </div>
+
+                </div>
+                <div class="carousel-item">
+                  <div class="content">
+                    <h2>TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2>
+                  </div>
+                </div>
+
+
+
+
+              </div>
+            </div><!-- carousel end-->
+          </div>
+          <div class="col-lg-4 h-100 rubrique_question" style="box-shadow: black 0 0 10px;">
+            <ul>
+              <li data-target="#carousel_faq_rubrique_3" data-slide-to="0">Qui est à l'origine de ce projet ?</li>
+              <p data-target="#carousel_faq_rubrique_3" data-slide-to="0">(Cette personne sait elle de quoi elle parle
+                ?)</p>
+              <li data-target="#carousel_faq_rubrique_3" data-slide-to="1">Pourquoi envisager un changement aussi global
+                ?</li>
+              <p data-target="#carousel_faq_rubrique_3" data-slide-to="1">(Et est ce vraiment nécessaire ?)</p>
+              <li data-target="#carousel_faq_rubrique_3" data-slide-to="2">Qu'est ce que cette démarche et quelle est
+                son but ?</li>
+              <p data-target="#carousel_faq_rubrique_3" data-slide-to="2">(Est ce vraiment réalisable ?)</p>
+              <li data-target="#carousel_faq_rubrique_3" data-slide-to="3">A qui s'adresse ce projet ?</li>
+              <p data-target="#carousel_faq_rubrique_3" data-slide-to="3">(Pourquoi me concerne il ?)</p>
+            </ul>
+          </div>
+        </div>
+        <strong>
+          <h2></h2>
+        </strong>
+      </div>
+
+    </div>
+
+    <!-- QUATRIEME RUBRIQUE  -->
+    <div id="background_4" class="row rubrique_background">
+      <h2 class="rubrique_title">Quel moyen pour s'en sortir</h2>
+      <h5>(Des moyens simples , facile , efficaces , sans efforts)</h5>
+      <img src="Ressource_image/player on.png" style="cursor: pointer;" alt="" data-toggle="modal"
+        data-target="#modal_demarche_global" />
+    </div>
+
+    <div id="le_pourquoi" class="row rubrique text-center">
+
+      <div id="rubrique4_photo" class="col-lg-3"></div>
+      <div class="col-lg-9 h-100">
+        <div class="row h-100">
+
+
+          <!-- CAROUSEL FAQ RUBRIQUE 2 -->
+          <div class="col-lg-8 p-0 h-100">
+            <div id="carousel_faq_rubrique_4" class="carousel slide carousel_faq_rubrique" data-ride="carousel"
+              style="height:100%;" data-slide="false">
+              <ol class="carousel-indicators">
+                <li data-target="#carousel_faq_rubrique_4" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel_faq_rubrique_4" data-slide-to="1"></li>
+                <li data-target="#carousel_faq_rubrique_4" data-slide-to="2"></li>
+                <li data-target="#carousel_faq_rubrique_4" data-slide-to="3"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <!-- <h2 class="d-flex h-100 justify-content-center align-items-center flex-column">TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2> -->
+                  <div class="content">
+                    <h2>TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2>
+                  </div>
+
+
+                </div>
+                <div class="carousel-item">
+                  <div class="content">
+                    <h2>TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2>
+                  </div>
+
+                </div>
+                <div class="carousel-item">
+                  <div class="content">
+                    <h2>TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2>
+                  </div>
+
+                </div>
+                <div class="carousel-item">
+                  <div class="content">
+                    <h2>TOUT A UNE CAUSE | TOUT A UNE ORIGINE</h2>
+                  </div>
+                </div>
+
+
+
+
+              </div>
+            </div><!-- carousel end-->
+          </div>
+          <div class="col-lg-4 h-100 rubrique_question" style="box-shadow: black 0 0 10px;">
+            <ul>
+              <li data-target="#carousel_faq_rubrique_4" data-slide-to="0">Qui est à l'origine de ce projet ?</li>
+              <p data-target="#carousel_faq_rubrique_4" data-slide-to="0">(Cette personne sait elle de quoi elle parle
+                ?)</p>
+              <li data-target="#carousel_faq_rubrique_4" data-slide-to="1">Pourquoi envisager un changement aussi global
+                ?</li>
+              <p data-target="#carousel_faq_rubrique_4" data-slide-to="1">(Et est ce vraiment nécessaire ?)</p>
+              <li data-target="#carousel_faq_rubrique_4" data-slide-to="2">Qu'est ce que cette démarche et quelle est
+                son but ?</li>
+              <p data-target="#carousel_faq_rubrique_4" data-slide-to="2">(Est ce vraiment réalisable ?)</p>
+              <li data-target="#carousel_faq_rubrique_4" data-slide-to="3">A qui s'adresse ce projet ?</li>
+              <p data-target="#carousel_faq_rubrique_4" data-slide-to="3">(Pourquoi me concerne il ?)</p>
             </ul>
           </div>
         </div>
@@ -625,7 +835,7 @@
           savoir plus ?
           l'auteur est conscient de tout ça . et ceci n'est en effet la que pour poser un cadre très général, afin de
           commencer à définir un projet d'une grande compléxité
-          Bientôt + infos :)
+          Bientôt + infos :
         </div>
 
         <div class="modal-footer">
@@ -647,7 +857,26 @@
         interval: 2000
       })
     </script>
+    <h1 >alphonse</h1>
+     <script>
 
+      document.addEventListener('keypress', toggle_bonus);
+      
+      
+      function toggle_bonus(event) {
+      
+        if (event.ctrlKey && event.keyCode == 'S'.charCodeAt(0)){
+          alert("Attention mode secret activé");
+          document.getElementById("bonus").innerHTML = "bonus"
+          document.getElementById("bonus").classList.remove('d-none')
+        }
+        // document.getElementById("bonus").innerHTML = "ça marche";
+        
+        
+  
+      }
+  
+    </script>
 </body>
 
 </html>

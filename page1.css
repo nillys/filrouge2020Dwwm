@@ -48,9 +48,9 @@ html{
 }
 
 .nav-item:hover{
-    background-color: #2e2f5d;
+    background-color: #2e2f5d77;
     border-radius: 1em;
-    box-shadow: #2e2f5d 0 0 1px,rgb(254, 254, 255) 0 5px 10px 2px;
+    box-shadow: #2e2f5d7e 0 0 1px,rgb(254, 254, 255) 0 5px 10px 2px;
     
 }
 
@@ -58,7 +58,7 @@ html{
 .navbar li:active{
     background-color: black;
     border-radius: 1em;
-    box-shadow: #2e2f5d inset 0 0 1px,rgb(254, 254, 255) 0 5px 10px 2px;
+    box-shadow: #2e2f5d7e inset 0 0 1px,rgb(254, 254, 255) 0 5px 10px 2px;
 }
 
 .diapo-first-bg{
@@ -384,9 +384,9 @@ transition: all 1.3s;
     border-radius: 1em ;
 }
 
-#background_1{
+.rubrique_background{
     min-height: 50vh;
-    background-image: url('Ressource_image/dandelion-2817950_1920.jpg');
+
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -400,7 +400,28 @@ transition: all 1.3s;
     align-items: center;
 }
 
-#background_1 img{
+#background_1{
+    background-image: url('Ressource_image/dandelion-2817950_1920.jpg');
+}
+
+#background_2{
+
+    background-image: url('Ressource_image/global-warming-2034896_1920.jpg');
+
+}
+
+#background_3{
+
+    background-image: url('Ressource_image/connect-20333_1920.jpg');
+
+}
+#background_4{
+
+    background-image: url('Ressource_image/away-4610699_1920.jpg');
+
+}
+
+.rubrique_background img{
 
     margin-top:7%;
     width: 50px;
@@ -408,38 +429,22 @@ transition: all 1.3s;
     transition: all ease 1s;
 }
 
-#background_1 img:hover{
+.rubrique_background img:hover{
     width: 70px;
     height: 70px;
 }
 
-#background_2{
-    min-height: 50vh;
-    background-image: url('Ressource_image/global-warming-2034896_1920.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: black;
-    color: white;
-    text-shadow: black 0 0 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+.rubrique_background h2{
+    font-size: 3em;
 }
 
-#background_2 img{
 
-    margin-top:7%;
-    width: 50px;
-    height: 50px;
-    transition: all ease 1s;
-}
+
+
 
 #rubrique1_photo{
     background-image: url('Ressource_image/dandelion-2817950_1920.jpg');
-    background-size: center;
+    background-size: cover;
     background-position: 50% 50%;
     box-shadow: 0 0 10px black ;
     background-repeat: no-repeat;
@@ -455,14 +460,22 @@ transition: all 1.3s;
     background-attachment: fixed;
 }
 
-#background_2 img:hover{
-    width: 70px;
-    height: 70px;
+#rubrique3_photo{
+    background-image: url('Ressource_image/connect-20333_1920.jpg');
+    background-size: cover;
+    background-position: 40% 50%;
+    box-shadow: 0 0 10px black ;
+    background-attachment: fixed;
 }
 
-#background_1 h2{
-    font-size: 3em;
+#rubrique4_photo{
+    background-image: url('Ressource_image/away-4610699_1920.jpg');
+    background-size: cover;
+    background-position: 40% 50%;
+    box-shadow: 0 0 10px black ;
+    background-attachment: fixed;
 }
+
 
 .rubrique_title{
     font-size: 3em;
