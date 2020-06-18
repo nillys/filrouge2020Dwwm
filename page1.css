@@ -61,6 +61,35 @@ html{
     box-shadow: #2e2f5d7e inset 0 0 1px,rgb(254, 254, 255) 0 5px 10px 2px;
 }
 
+#main-_screen{
+    display: none;
+    background-color: #2e2f5d;
+}
+
+#main_windows_game{
+    background-image : url("Ressource_image/Tour\ anoi0.1.png")
+}
+
+.game_controller{
+    margin-top:15px;
+}
+
+.game button{
+    background-color: white;
+    border-radius: 5px;
+    padding: 0.2em;
+    border: 1px black solid;
+    box-shadow:  black 0 3px 5px;
+    transition: all 0.2s;
+}
+
+.game button:hover{
+    box-shadow: inset black 0 0 5px;
+}
+
+.game button:active{
+    box-shadow: inset black 0 0 15px;
+}
 .diapo-first-bg{
     min-height: 100%;
     display: flex;

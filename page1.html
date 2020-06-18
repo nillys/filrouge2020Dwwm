@@ -3,20 +3,18 @@
 <html lang="fr" onkeydown="toggle_bonus(event)">
 
 <head>
-  <script>
- function reload(){
-  document.location.reload(true);
- }
-  </script>
+
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="page1.css">
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
   <link rel="stylesheet" type="text/css"
     href="Ressource_icone/open-iconic-master/open-iconic-master/font/css/open-iconic-bootstrap.css">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
- 
+
+
 
 </head>
+
 <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert"
   style="margin:0;position: fixed;left:40%;top:33%;z-index: 9999;width: 500px;">
   <strong>ATTENTION </strong>Ce site est en <strong>"construction"</strong> La version présenté ici ne saurait être
@@ -60,7 +58,7 @@
             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Qui suis je ?
           </a>
-          
+
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a title="confidentiel" class="dropdown-item" href="#">Mon cv</a>
             <a class="dropdown-item" href="#">En apprendre plus sur moi</a>
@@ -68,27 +66,38 @@
             <a class="dropdown-item" href="#">Comprendre mon engagement</a>
           </div>
         </li>
-        <li>
-          <a tittle="En cours de création" class="nav-link dropdown-toggle d-none" href="#" id="navbarDropdown2" role="button"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="bonus">
-            
+        <li class="nav-item dropdown">
+          <a tittle="En cours de création" class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Bonus
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-            <a title="confidentiel" class="dropdown-item" href="#">Mon cv</a>
-            <a class="dropdown-item" href="#">En apprendre plus sur moi</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Comprendre mon engagement</a>
+            <a title="confidentiel" class="dropdown-item" href="#" id="toggle_hanoi_screen">Jouer à la tour de Hanoi</a>
+            <a class="dropdown-item disabled" href="#">Bientôt plus de contenu</a>
+
           </div>
         </li>
-
+        <h1 id="alphonse"></h1>
       </ul>
 
     </div>
   </nav>
 
-  <!-- Somaire -->
 
-  <button type="button" onclick="toggle_bonus()">dfsf</button>
+
+  <!-- Somaire -->
+  <div class="game d-flex flex-column justify-content-center align-items-center h-100 w-100 p-5 "
+     id="hanoi_screen">
+    <button type="button" style="margin-bottom: 15px;"><span class="oi oi-check"></span> START </button>
+    <canvas id="main_windows_game" height="400" width="600"
+      style="border: black 1px solid;background-color: aquamarine;"></canvas>
+    <div class="game_controller d-flex justify-content-between w-25">
+      <button class="oi oi-arrow-right"></button>
+      <div><button class="oi oi-arrow-left" style="margin-right:10px"></button><button
+          class="oi oi-arrow-right"></button></div><button class="oi oi-arrow-left"></button>
+    </div>
+  </div>
+  
   <div class="container-fluid">
     <div id="start_sommaire" class="row" style="">
       <div class="col-lg-12" style="padding:0">
@@ -847,35 +856,35 @@
   <script src="bootstrap/js/jquery-3.4.1.min.js"></script>
   <script src="bootstrap/js/bootstrap.bundle.js"></script>
   <scrip src="Ressource_code/aos-master/aos-master/dist/aos.js">
-    </script>
 
-    <script>
-      AOS.init({
-        easing: 'ease-in-out-sine'
-      });
-      $('.carousel').carousel({
-        interval: 2000
+    <script> // JQUERY
+      $(document).ready(function () {
+        $("#toggle_hanoi_screen").click(function () {
+          $("#hanoi_screen").fadeToggle();
+        })
       })
     </script>
-    <h1 >alphonse</h1>
-     <script>
+
+    <!-- FONCTION listner pour racourci -->
+    <script>
 
       document.addEventListener('keypress', toggle_bonus);
-      
-      
+
+
       function toggle_bonus(event) {
-      
-        if (event.ctrlKey && event.keyCode == 'S'.charCodeAt(0)){
+
+        if (event.ctrlKey && event.altKey && event.keyCode == 'B'.charCodeAt(0)) {
+
           alert("Attention mode secret activé");
-          document.getElementById("bonus").innerHTML = "bonus"
-          document.getElementById("bonus").classList.remove('d-none')
+          // document.getElementById("navbarDropdown2").innerHTML = "alphonse"
+          document.getElementById("navbarDropdown2").classList.remove('d-none')
         }
         // document.getElementById("bonus").innerHTML = "ça marche";
-        
-        
-  
+
+
+
       }
-  
+
     </script>
 </body>
 
