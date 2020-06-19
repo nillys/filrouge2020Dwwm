@@ -61,13 +61,13 @@ html{
     box-shadow: #2e2f5d7e inset 0 0 1px,rgb(254, 254, 255) 0 5px 10px 2px;
 }
 
-#main-_screen{
+#hanoi_screen{
     display: none;
     background-color: #2e2f5d;
 }
 
 #main_windows_game{
-    background-image : url("Ressource_image/Tour\ anoi0.1.png")
+    background-image : url("Ressource_image/Tour\ anoi0.3.png")
 }
 
 .game_controller{

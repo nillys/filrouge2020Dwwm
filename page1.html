@@ -67,8 +67,8 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a tittle="En cours de création" class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a tittle="En cours de création" class="nav-link dropdown-toggle d-none" href="#" id="navbarDropdown2"
+            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Bonus
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
@@ -86,9 +86,10 @@
 
 
   <!-- Somaire -->
-  <div class="game d-flex flex-column justify-content-center align-items-center h-100 w-100 p-5 "
-     id="hanoi_screen">
-    <button type="button" style="margin-bottom: 15px;"><span class="oi oi-check"></span> START </button>
+
+  <div class="game flex-column justify-content-center align-items-center p-5" id="hanoi_screen">
+    <button type="button" style="margin-bottom: 15px;" onclick="init_game()"><span class="oi oi-check"></span> START
+    </button>
     <canvas id="main_windows_game" height="400" width="600"
       style="border: black 1px solid;background-color: aquamarine;"></canvas>
     <div class="game_controller d-flex justify-content-between w-25">
@@ -97,7 +98,7 @@
           class="oi oi-arrow-right"></button></div><button class="oi oi-arrow-left"></button>
     </div>
   </div>
-  
+
   <div class="container-fluid">
     <div id="start_sommaire" class="row" style="">
       <div class="col-lg-12" style="padding:0">
@@ -164,7 +165,7 @@
     </div>
 
   </div>
-  <div id="resume" class="text-center">
+  <div id="resume" class="text-center ">
     <div>
       <h2>
         <strong>Aider le monde : <br>à s'aider lui même !</strong>
@@ -860,7 +861,9 @@
     <script> // JQUERY
       $(document).ready(function () {
         $("#toggle_hanoi_screen").click(function () {
-          $("#hanoi_screen").fadeToggle();
+
+          $("#hanoi_screen").slideToggle();
+          $("#hanoi_screen").css('display', "flex");
         })
       })
     </script>
@@ -885,6 +888,52 @@
 
       }
 
+      function init_grid(nb_items) {
+        var game_grid = { "green": Array(nb_items), "yellow": Array(nb_items), "red": Array(nb_items) };
+        return game_grid
+      }
+
+      function insert_position_grid(tableau, nb_items, limit) {
+        // Cette fonction prend en entré une hauteur , le nombre d'éléments par colonne elle divise ce nombre par la hauteur et insère 
+        // Toute les valeurs dans la grille de TOUTE les colonnes du tableau rentré en paramètre 
+        console.log(limit / nb_items);
+        var i = 0
+        for (var key in tableau) {
+          for (var i = 0;) {
+            tableau[key2] = 10
+        }
+        }
+        return tableau;
+      }
+
+
+      function init_game() {
+
+        var vert = 94, jaune = 250, rouge = 409, origin = 328, limit = 130;
+        var can_width = 600, can_height = 400;
+        var nb_items = 3;
+
+        var game_grid = init_grid(nb_items);
+        game_grid = insert_position_grid(game_grid, nb_items, limit);
+
+
+        console.log(game_grid);
+        var can = document.getElementById("main_windows_game");
+        ctxt = can.getContext("2d");
+
+        var img = new Image();
+        img.src = "Ressource_image/ring_min.png";
+        img.onload = function () {
+          ctxt.drawImage(img, 409, 130);
+        }
+
+
+        // document.getElementById(main_windows_game)
+      }
+      // TOUR HANOI COMMANDE 
+      function move_right() {
+
+      }
     </script>
 </body>
 
